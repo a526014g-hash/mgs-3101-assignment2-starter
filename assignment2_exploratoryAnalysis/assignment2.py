@@ -51,3 +51,21 @@ print("\nRow with maximum cost:")
 print(df.loc[df[cost].idxmax()])
 print("\nRow with minimum cost:")
 print(df.loc[df[cost].idxmin()])
+
+#Use if/else statement to check if average order value meets the predefined threshold
+target_avg_order = 110000
+avg_order_value = df[order].mean()
+total_revenue = df[order].sum()
+avg_cost = df[cost].mean()
+
+
+
+print(f"Average Order Value: {avg_order_value:.2f} EUR")
+print(f"Total Revenue: {total_revenue:,.2f} EUR")
+print(f"Average Cost: {avg_cost:.2f} EUR")
+
+if avg_order_value >= target_avg_order:
+    print(f"The average order value ({avg_order_value:.2f} EUR) meets thetarget threshold of {target_avg_order} EUR.")
+else:
+    print(f"The average order value ({avg_order_value:.2f} EUR) does not meet the target threshold of {target_avg_order} EUR.")
+
