@@ -15,3 +15,5 @@ print("\n==== Column Data Types ====")
 print(df.dtypes)
 
 print(df.head())
+# check for and report missing values in each column
+print(df.isnull().sum())
