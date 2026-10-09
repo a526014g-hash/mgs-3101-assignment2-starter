@@ -19,6 +19,7 @@ print(df.head())
 print(df.isnull().sum())
 
 # Calculate descriptive statistics for at least two numeric columns
-
+numeric_df = df.select_dtypes(include=["int64", "float64"])
+print(numeric_df.describe())
 
 
