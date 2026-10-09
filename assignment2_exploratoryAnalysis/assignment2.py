@@ -29,3 +29,25 @@ print(df.columns)
 group_result = df.groupby("country")[[" order_value_EUR ", " cost "]].agg(["mean", "sum"])
 print(group_result)
 
+# Identifies the single highest and single lowest value for a numeric column of your choice, along with the row(s) they belong to
+#highest and lowest order_value_EUR
+order = " order_value_EUR "
+max_order_val = df[order].max()
+min_order_val = df[order].min()
+print(f"Highest order_value_EUR: {max_order_val:.2f}")
+print(f"Lowest order_value_EUR: {min_order_val:.2f}")
+print("\nRow with maximum order_value_EUR:")
+print(df.loc[df[order].idxmax()])
+print("\nRow with minimum order_value_EUR:")
+print(df.loc[df[order].idxmin()])
+
+#highest and lowest cost
+cost = " cost "
+max_cost_val = df[cost].max()
+min_cost_val = df[cost].min()
+print(f"Highest cost: {max_cost_val:.2f}")
+print(f"Lowest cost: {min_cost_val:.2f}")
+print("\nRow with maximum cost:")
+print(df.loc[df[cost].idxmax()])
+print("\nRow with minimum cost:")
+print(df.loc[df[cost].idxmin()])
