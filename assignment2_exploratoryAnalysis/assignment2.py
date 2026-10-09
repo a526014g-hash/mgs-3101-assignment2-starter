@@ -4,7 +4,7 @@ import os
 # Load dataset 
 script_dir = os.path.dirname(__file__)
 csv_path = os.path.join(script_dir, "../data/Sales-Export_2019-2020.csv")
-df = pd.read_csv(csv_path)
+df = pd.read_csv(csv_path, thousands=",")
 
 # (rows, columns)
 print("==== Dataset Shape ====")
@@ -17,3 +17,8 @@ print(df.dtypes)
 print(df.head())
 # check for and report missing values in each column
 print(df.isnull().sum())
+
+# Calculate descriptive statistics for at least two numeric columns
+
+
+
