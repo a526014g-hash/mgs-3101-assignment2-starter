@@ -70,6 +70,45 @@ if avg_order_value >= target_avg_order:
 else:
     print(f"The average order value ({avg_order_value:.2f} EUR) does not meet the target threshold of {target_avg_order} EUR.")
 
+#  Print findings summary:
+print(" FINDINGS SUMMARY FROM ANALYSIS")
+
+# Pattern1 
+print("\nPattern 1: Individual transaction order sizes show large imbalance.")
+print(f"Dataset average order value: {df[order].mean():.2f} EUR")
+print(f"Minimum order value: {df[order].min():.2f} EUR")
+print(f"Maximum order value: {df[order].max():.2f} EUR")
+print("75% of transactions have order value below 151192.64 EUR.")
+print("The highest value transaction from the UK is also the record for highest cost.")
+
+#  Pattern2 
+print("\nPattern 2: Average order value differs greatly across countries.")
+print("Luxembourg has the highest average order value, while Denmark shows the lowest average order value.")
+print("France, Portugal and Sweden get high total revenue from large transaction counts, not large single‑order size.")
+print("Customers in Luxembourg and Finland tend to place bulk orders; Danish customers tend to make small‑size orders.")
+
+# Pattern3
+print("\nPattern 3: Order value is positively correlated with product cost.")
+print(f"Average cost of all samples: {df[cost].mean():.2f} EUR")
+print(f"Minimum cost: {df[cost].min():.2f} EUR")
+print(f"Maximum cost: {df[cost].max():.2f} EUR")
+print("Countries with higher average order value also have higher average cost.")
+print("Large value orders bring higher revenue but also raise product costs.")
+
+# recommendations
+print("\n----- Data driven business recommendations -----")
+print("1. Focus bulk purchase marketing for key business customers in Luxembourg and Finland. Retain high‑value customers and explore new large‑volume deals.")
+print("2. Launch special promotions for the Denmark market. Use bundle offers to encourage customers to buy more and lift average order size.")
+print("3. For large value orders, negotiate better raw‑material purchasing terms and develop higher‑margin product options.")
+
+# issues
+print("\n----- Remaining issues after analysis -----")
+print("1. Threshold test only checks global average, cannot test business target for each separate country.")
+print("2. Lack external market context such as local prices and competition environment.")
+print("3. This dataset does not contain full profit and extra expense information.")
+
+print("="*60 + "\n")
+
 #Created bar chart plot to visualize 
 country_group = df.groupby("country")[order].agg(["mean", "sum"]).reset_index()
 country_group = country_group.sort_values('mean', ascending=False)
