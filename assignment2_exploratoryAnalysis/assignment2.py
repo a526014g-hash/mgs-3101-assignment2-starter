@@ -13,3 +13,5 @@ print(f"Rows: {df.shape[0]}, Columns: {df.shape[1]}")
 # Show column data types
 print("\n==== Column Data Types ====")
 print(df.dtypes)
+
+print(df.head())
