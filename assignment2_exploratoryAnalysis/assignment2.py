@@ -22,4 +22,10 @@ print(df.isnull().sum())
 numeric_df = df.select_dtypes(include=["int64", "float64"])
 print(numeric_df.describe())
 
+# Groups the data by at least one categorical column and summarizes a numeric column 
+print("\n==== All Column Names ====")
+print(df.columns)
+#1 Groups the data by countryand summarizes numeric columns
+group_result = df.groupby("country")[[" order_value_EUR ", " cost "]].agg(["mean", "sum"])
+print(group_result)
 
